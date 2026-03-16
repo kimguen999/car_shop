@@ -1,0 +1,48 @@
+.container{
+  width: 80%;
+  margin: 30px auto;
+  border: 1px solid #000;
+
+}
+.container p{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.buyer{
+  display: flex;
+
+}
+
+
+
+
+.colorModel{
+  display: flex;
+  margin: 30px 0px;
+}
+.colorModel>div:first-child{
+  margin-right: 70px;
+}
+
+.colorModel select{
+  width: 160px;
+  font-size: 1.2rem;
+
+}
+
+
+.colorModel div{
+  display: flex;
+}
+
+.tell{
+  display: flex;
+}
+
+.button{
+  margin-top: 30px;
+}
+
+
+

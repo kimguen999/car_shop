@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.car_shop.car_shop.carInfo.mapper.CarInfoMapper">
+	<resultMap id="carInfo" type="com.car_shop.car_shop.carInfo.dto.CarInfoDTO">
+        <id column="CAR_NUM"            property="carNum"/>
+        <result column="CAR_NAME"       property="carName"/>
+        <result column="CAR_PRICE"      property="carPrice"/>
+        <result column="CAR_COMPANY"    property="carCompany"/>
+
+    </resultMap>
+
+
+
+    <!--차량 하나씩 등록 쿼리-->
+    <insert id="insertCar">
+        INSERT INTO CAR_INFO (
+            CAR_NUM
+            , CAR_NAME
+            , CAR_PRICE
+            , CAR_COMPANY
+        ) VALUES (
+            #{carNum}
+            , #{carName}
+            , #{carPrice}
+            , #{carCompany}
+        )
+    </insert>
+
+    <!--차량 등록시 목록 조회 쿼리(내림차순)-->
+    <select id="manageList" resultMap="carInfo">
+        SELECT
+            CAR_NUM
+            , CAR_NAME
+            , CAR_COMPANY
+        FROM
+            CAR_INFO
+        ORDER BY CAR_NUM DESC
+    </select>
+
+
+    <resultMap id="saleInfo" type="com.car_shop.car_shop.carInfo.dto.SaleInfoDTO">
+        <id column="SALES_NUM"           property="salesNum"/>
+        <result column="BUYER_NAME"     property="buyerName"/>
+        <result column="BUYER_CONTACT"  property="buyerContact"/>
+        <result column="SALES_COLOR"    property="salesColor"/>
+        <result column="CAR_NUM"        property="carNum"/>
+
+    </resultMap>
+
+    <!--판매 정보 등록 쿼리-->
+    <insert id="insertSale">
+        INSERT INTO CAR_INFO (
+            SALES_NUM
+            , BUYER_NAME
+            , BUYER_CONTACT
+            , SALES_COLOR
+            , CAR_NUM
+        ) VALUES (
+            #{salesNum}
+            , #{buyerName}
+            , #{buyerContact}
+            , #{salesColor}
+            , #{carNum}
+        )
+    </insert>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

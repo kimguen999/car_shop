@@ -1,0 +1,40 @@
+
+.button{
+  border: none;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  transition: all 0.5s;
+  outline: none;
+  cursor: pointer;
+}
+
+
+
+
+.brown{
+  background-color: #8C5A3C;
+  color: white;
+}
+.brown:hover{
+  background-color: #4B2E2B;
+}
+.redbrown{
+  background-color: #9B0F06;
+  color: white;
+}
+.redbrown:hover{
+  background-color: #5E0006;
+}
+
+
+
+.aa{
+  padding: 0.6rem 2rem;
+}
+
+
+
+.disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
