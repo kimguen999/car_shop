@@ -58,6 +58,17 @@ public class CarInfoController {
     }
   }
 
-
+  // 차량 판매 목록 조회 api
+  // (get) localhost:8080/cars/sale
+  @GetMapping("/sale")
+  public ResponseEntity<?> salesList(){
+    try {
+      List<SaleInfoDTO> list = carInfoService.salesList();
+      return ResponseEntity.status(HttpStatus.OK).body(list);
+    } catch (Exception e){
+      log.error("차량판매 목록 조회 api 오류", e);
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+  }
 
 }

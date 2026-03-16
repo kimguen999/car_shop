@@ -163,6 +163,7 @@ const CarManagement = () => {
             <div className={styles.input2}>
               <p>모델명</p>
               <Input 
+                
                 name='carName'
                 value={regCar.carName}
                 onChange={e=>handleRegCar(e)}

@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './SellList.module.css'
+import { salesListAxios } from '../../api/manageApi'
 
 const SellList = () => {
+
+
+  
+  // 판매 목록 state
+  const [salesList, setSalesList] = useState([])
+
+  // 마운트 시 판매 목록 조회
+  useEffect(() => {
+    getSalesList()
+  }, [])
+
+  // 판매 목록 조회 함수
+  const getSalesList = async() => {
+    const response = await salesListAxios()
+    setSalesList(response.data)
+  }
+
+  
+
+  console.log('salesList :', salesList)
+
   return (
     <>
+
+
       <div className={styles.tableDiv}>
         <table>
           <colgroup>
@@ -30,23 +54,72 @@ const SellList = () => {
               <td>가격</td>
             </tr>
           </thead>
+
+
+
+
           <tbody className={styles.tbody}>
-            <tr>
-              <td>1</td>
-              <td>이름</td>
-              <td>010-2343-6542</td>
-              <td>날짜</td>
-              <td>색상</td>
-              <td>G80</td>
-              <td>3000원</td>
-            </tr>
+            {/* 판매 등록 정보 없을때 */}
+            {
+              salesList.length === 0
+              ?
+              <tr>
+                <td 
+                  colSpan={7}
+                >등록된 판매 정보가 없습니다.</td>
+              </tr>
+              :
+
+              salesList.map((sale, i) => {
+                return (
+                  <tr 
+                    key={sale.salesNum}
+                  >
+                    <td>
+                      {i + 1}
+                    </td>
+                    <td>
+                      {sale.buyerName}
+                    </td>
+
+                    {/* 연락처 없을때 - 출력 */}
+                    <td>
+                      {sale.buyerContact ? sale.buyerContact : '-'}
+                    </td>
+
+                    {/* 날짜. 시간 형식 클로드 도움*/}
+                    <td>
+                      {sale.salesDate ? 
+                        new Date(sale.salesDate).toLocaleString('ko-KR', {
+                          year: 'numeric',
+                          month: '2-digit',
+                          day: '2-digit',
+                          hour: '2-digit',
+                          minute: '2-digit',
+                          hour12: false
+                        }).replace(/\. /g, '.')
+                        : '-'
+                      }
+                    </td>
+
+                    <td>{sale.salesColor}</td>
+                    <td>{sale.carName}</td>
+                    <td>{sale.carPrice.toLocaleString()}원</td>
+                  </tr>
+                )
+              })
+            }
           </tbody>
+
+
+
         </table>
       </div>
-    
-    
-    
-    
+
+
+
+
+
     </>
   )
 }

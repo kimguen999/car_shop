@@ -18,4 +18,7 @@ public interface CarInfoMapper {
   // 판매 정보 등록 쿼리 실행 메서드
   void insertSale(SaleInfoDTO saleInfoDTO);
 
+  // 차량 판매 목록 조회 쿼리 실행 메서드
+  List<SaleInfoDTO> salesList();
+
 }

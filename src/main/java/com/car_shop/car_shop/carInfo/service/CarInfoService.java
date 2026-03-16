@@ -29,7 +29,10 @@ public class CarInfoService {
     carInfoMapper.insertSale(saleInfoDTO);
   }
 
-
+  // 차량 판매 목록 조회 기능
+  public List<SaleInfoDTO> salesList(){
+    return carInfoMapper.salesList();
+  }
 
 
 

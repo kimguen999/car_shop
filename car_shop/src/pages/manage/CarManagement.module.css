@@ -1,6 +1,6 @@
 .container{
   width: 80%;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   margin: 30px auto;
 }
 
@@ -13,7 +13,8 @@
 
 
 .regDiv>p:first-child{
-  margin-bottom: 15px;
+  margin-bottom: 40px;
+  font-size: 2.3rem;
 }
 
 .inputDiv{
@@ -39,14 +40,38 @@
   margin-right: 0;
 }
 
+.input2 p{
+  /* margin-bottom : 30px;
+  
+  border: 1px solid #000; */
+}
+
+.input2 Input{
+  width: 300px;
+  margin-top: 10px;
+}
 
 .select{
-  width: 160px;
-  font-size: 1.2rem;
-  
+  width: 300px;
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+  outline: none;
+  border-radius: 5px;
+  padding: 0.4rem;
+  transition: all 0.4s;
+  margin-top: 10px;
   
 
 }
+
+.select:focus{
+  border-color: rgb(182, 174, 159);
+  box-shadow: 0 0 0 0.25rem rgba(182, 174, 159, 0.5);
+}
+
+
+
+
 .price{
   display: flex;
   flex-direction: column;  
